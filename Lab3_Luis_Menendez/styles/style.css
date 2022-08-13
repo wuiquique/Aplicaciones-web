@@ -1,0 +1,56 @@
+#navbar {
+    height: 200px;
+}
+
+#logo {
+    width: 250px;
+}
+
+#boton-play {
+    color: black;
+}
+
+#boton-play:hover {
+    color: rgb(158, 79, 232);
+}
+
+#instagram {
+    background-color: #ac2bac;
+}
+
+#scloud {
+    background-color: #F26F23;
+}
+
+#spotify {
+    background-color: #1DB954;
+}
+
+#flork {
+    width: 400px;
+}
+
+.titulos {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#right-menu {
+    border-right: solid;
+    border-right-width: 1px;
+    border-bottom: solid;
+    border-bottom-width: 1px;
+}
+
+#buton-canciones {
+    color: white;
+}
+
+#buton-canciones:hover {
+    color: rgb(158, 79, 232);
+}
+
+#cancion-frame {
+    border-radius:12px
+}

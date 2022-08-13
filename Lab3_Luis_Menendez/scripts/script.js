@@ -1,0 +1,1 @@
+var contactSummit = document.getElementById("summit")
