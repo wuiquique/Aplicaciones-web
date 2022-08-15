@@ -38,7 +38,9 @@ function modal() {
         Swal.fire({
             icon: 'success',
             title: 'Succes',
-            text: 'Welcome ' + name + ' we will be contacting you soon via ' + email + '@' + domain + '.',
+            text: 'Welcome ' + name + ', we will be contacting you soon via ' + email + '@' + domain,
+          }).then(function() {
+            window.location = "../index.html"
           })
     }    
 }
