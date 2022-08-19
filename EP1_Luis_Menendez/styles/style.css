@@ -1,0 +1,14 @@
+#navbar {
+    background-color: #7B001E;
+}
+
+#logounis {
+    height: 80px;
+    width: 150px;
+}
+
+#nombre {
+    font-weight: bold;
+    display: inline-block;
+    padding: 3px;
+}
