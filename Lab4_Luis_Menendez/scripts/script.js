@@ -6,6 +6,7 @@ new Vue({
         min: 10,
         max: 80,
         slider: 18,
+        dialog: false,
       }
     },
   })
