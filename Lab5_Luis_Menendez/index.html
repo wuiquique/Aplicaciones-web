@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="./styles/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
@@ -13,7 +15,104 @@
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/4.0.2/vuex.cjs.js"></script>
 </head>
+
 <body>
-    
+    <div id="app">
+        <v-app>
+            <header>
+                <template>
+                    <v-card flat>
+                        <v-container fluid>
+                            <v-row class="child-flex">
+                                <div>
+                                    <v-toolbar>
+                                        <v-btn icon class="hidden-xs-only">
+                                        </v-btn>
+
+                                        <v-toolbar-title>Shopping</v-toolbar-title>
+
+                                        <v-spacer></v-spacer>
+
+                                        <v-btn icon class="hidden-xs-only">
+                                            <v-icon>mdi-magnify</v-icon>
+                                        </v-btn>
+                                    </v-toolbar>
+                                </div>
+
+                                <div style="flex-basis: 50%">
+                                    <v-toolbar dark>
+                                        <v-spacer></v-spacer>
+
+                                        <v-btn icon>
+                                            <v-icon>mdi-reply</v-icon>
+                                        </v-btn>
+
+                                        <v-btn icon>
+                                            <v-icon>mdi-dots-vertical</v-icon>
+                                        </v-btn>
+                                    </v-toolbar>
+                                </div>
+                            </v-row>
+                        </v-container>
+                    </v-card>
+                </template>
+            </header>
+
+            <v-main>
+                <v-row>
+                    <v-col cols="12" xl="4" lg="4" md="4" sm="12" xs="12">
+                        <template>
+                            <v-card height="400" width="256"
+                                class="my-xl-3 mx-xl-3 my-lg-3 mx-lg-3 my-md-3 mx-md-3 my-sm-3 mx-sm-3 my-xs-3 mx-xs-3">
+                                <v-navigation-drawer permanent absolute left>
+                                    <v-list-item>
+                                        <v-list-item-content>
+                                            <v-list-item-title class="text-h6">
+                                                Menu
+                                            </v-list-item-title>
+                                        </v-list-item-content>
+                                    </v-list-item>
+
+                                    <v-divider></v-divider>
+
+                                    <v-list dense nav>
+                                        <v-list-item v-for="item in items" :key="item.title" link>
+                                            <v-list-item-icon>
+                                                <v-icon>{{ item.icon }}</v-icon>
+                                            </v-list-item-icon>
+
+                                            <v-list-item-content>
+                                                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                    </v-list>
+                                </v-navigation-drawer>
+                            </v-card>
+                        </template>
+                    </v-col>
+
+                    <!--CARDS-->
+                    <v-col cols="12" xl="8" lg="8" md="8" sm="12" xs="12">
+                       <lista></lista>
+                    </v-col>
+                </v-row>
+            </v-main>
+
+            <footer>
+                <template>
+                    <v-footer :padless="padless" :fixed="true">
+                        <v-col class="text-center" cols="12">
+                            {{ new Date().getFullYear() }} - <strong>ShopiVoid©</strong>
+                        </v-col>
+                    </v-footer>
+                </template>
+            </footer>
+        </v-app>
+    </div>
+
+    <script src="./scripts/products.js"></script>
+    <script src="./scripts/components.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
+
 </html>
