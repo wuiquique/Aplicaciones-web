@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lab5</title>
 
     <link rel="stylesheet" href="./styles/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/4.0.2/vuex.cjs.js"></script>
+    <script src="https://unpkg.com/vuex@3.x/dist/vuex.js"></script>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                                         <v-btn icon class="hidden-xs-only">
                                         </v-btn>
 
-                                        <v-toolbar-title>Shopping List</v-toolbar-title>
+                                        <v-toolbar-title>My Cart</v-toolbar-title>
 
                                         <v-spacer></v-spacer>
 
@@ -93,7 +93,7 @@
 
                     <!--CARDS-->
                     <v-col cols="12" xl="10" lg="10" md="10" sm="12" xs="12">
-                       
+                       <cart></cart>
                     </v-col>
                 </v-row>
             </v-main>

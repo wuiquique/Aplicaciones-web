@@ -15,11 +15,52 @@ var carrito = []
 
 var store = new Vuex.Store ({
     state: {
-        carrito: []
+        carrito: JSON.parse(localStorage.getItem("carrito") ?? "[]")
     },
     mutations: {
         addToCart(state, item) {
+            var existe = false;
+            var indice;
+            for(let j = 0; j < state.carrito.length; j++) {
+                if(state.carrito[j].titulo === item.titulo) {
+                    existe = true;
+                    indice = j;
+                }
+            }
+            if(existe === false) {
+                state.carrito.push(item)
+            }
+            else {
+                state.carrito[indice].cantidad = state.carrito[indice].cantidad + 1
+            }
+            state.carrito.sort((a, b) => b.cantidad - a.cantidad)
+            localStorage.setItem("carrito", JSON.stringify(state.carrito))
+        },
+        deleteItem(state, item) {
+            var indice2;
+
+            for(let j = 0; j < state.carrito.length; j++) {
+                if(state.carrito[j].titulo === item.titulo) {
+                    indice2 = j
+                }
+            }
             
+            if(indice2 >= 0) {
+                state.carrito.splice(indice2, 1)
+            }
+            localStorage.setItem("carrito", JSON.stringify(state.carrito))
+        },
+        menos(state, item) {
+            if (item.cantidad > 1) {
+                item.cantidad = item.cantidad - 1
+            }
+            state.carrito.sort((a, b) => b.cantidad - a.cantidad)
+            localStorage.setItem("carrito", JSON.stringify(state.carrito))
+        },
+        mas(state, item) {
+            item.cantidad = item.cantidad + 1
+            state.carrito.sort((a, b) => b.cantidad - a.cantidad)
+            localStorage.setItem("carrito", JSON.stringify(state.carrito))
         }
     }
 })

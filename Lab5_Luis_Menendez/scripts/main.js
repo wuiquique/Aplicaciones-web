@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     vuetify: new Vuetify(),
+    store: store,
     data() {
         return {
             items: [
