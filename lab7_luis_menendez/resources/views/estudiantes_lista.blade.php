@@ -417,6 +417,34 @@
             <a>Cursos</a>
         </li>
     </nav>
+    @foreach ($estudiantes as $estudiante)
+    <p>{{ $estudiante->nombre }}</p>
+    <p>{{ $estudiante->genero }}</p>
+    <p>{{ $estudiante->facultad }}</p>
+    <button onclick="location.href='/estudiantes/{{$estudiante->id}}/edit'">Actualizar</button>
+    <form action="/estudiantes/{{$estudiante->id}}" method="POST">
+        @csrf
+        @method("DELETE")
+        <input type="submit" value="Borrar">
+    </form>
+    @endforeach
+
+    <form action="/estudiantes" method="POST">
+        @csrf
+
+        <input name="nombre" type="text" placeholder="Nombre">
+        <input name="dpi" type="text" placeholder="DPI">
+        <input name="direccion" type="text" placeholder="Direccion">
+        <input name="telefono" type="text" placeholder="Telefono">
+        <input name="departamento" type="text" placeholder="Departamento">
+        <input name="municipio" type="text" placeholder="Municipio">
+        <input name="zona" type="text" placeholder="Zona">
+        <input name="birth" type="date" placeholder="Fecha de nacimiento">
+        <input name="genero" type="text" placeholder="Genero">
+        <input name="carrera" type="text" placeholder="Carrera">
+        <input name="facultad" type="text" placeholder="Facultad">
+        <input type="submit" value="Crear">
+    </form>
 </body>
 
 </html>

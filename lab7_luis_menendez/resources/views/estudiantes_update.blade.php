@@ -417,6 +417,24 @@
             <a>Cursos</a>
         </li>
     </nav>
+
+    <form action="/estudiantes/{{$estudiante->id}}" method="POST">
+        @csrf
+        @method("PUT")
+
+        <input name="nombre" type="text" placeholder="Nombre" value="{{$estudiante->nombre}}">
+        <input name="dpi" type="text" placeholder="DPI" value="{{$estudiante->dpi}}">
+        <input name="direccion" type="text" placeholder="Direccion" value="{{$estudiante->direccion}}">
+        <input name="telefono" type="text" placeholder="Telefono" value="{{$estudiante->telefono}}">
+        <input name="departamento" type="text" placeholder="Departamento" value="{{$estudiante->departamento}}">
+        <input name="municipio" type="text" placeholder="Municipio" value="{{$estudiante->municipio}}">
+        <input name="zona" type="text" placeholder="Zona" value="{{$estudiante->zona}}">
+        <input name="birth" type="date" placeholder="Fecha de nacimiento" value="{{$estudiante->birth}}">
+        <input name="genero" type="text" placeholder="Genero" value="{{$estudiante->genero}}">
+        <input name="carrera" type="text" placeholder="Carrera" value="{{$estudiante->carrera}}">
+        <input name="facultad" type="text" placeholder="Facultad" value="{{$estudiante->facultad}}">
+        <input type="submit" value="Guardar">
+    </form>
 </body>
 
 </html>

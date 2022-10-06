@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('zonas', function (Blueprint $table) {
-            $table->engine = "InnoDB";
-            $table->bigIncrements('zona_id');
-            $table->integer('zona_numero');
-            $table->bigInteger('municipio_id')->unsigned();
+        Schema::create('cursos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->integer('creditos');
+            $table->foreignId('prof_id')->constrained('profesores');
             $table->timestamps();
-            $table->foreign('municipio_id')->references('municipio_id')->on('municipios')->onDelete("RESTRICT");
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cursos');
     }
 };

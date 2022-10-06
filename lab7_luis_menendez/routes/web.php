@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\ProfesorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('estudiantes', EstudianteController::class);
+Route::resource('profesores', ProfesorController::class);
+Route::resource('cursos', CursoController::class);
+
+// https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller
