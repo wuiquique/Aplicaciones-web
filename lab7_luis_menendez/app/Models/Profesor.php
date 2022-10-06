@@ -10,4 +10,11 @@ class Profesor extends Model
     use HasFactory;
 
     protected $table = "profesores";
+
+    public function cursos()
+    {
+        return $this->hasMany(Curso::class, "prof_id");
+    }
+
+    // @foreach ($profesor->cursos as $curso)
 }

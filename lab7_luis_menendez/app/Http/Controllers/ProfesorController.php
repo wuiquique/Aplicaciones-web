@@ -16,6 +16,9 @@ class ProfesorController extends Controller
     public function index()
     {
         //
+        return view('profesores_lista', [
+            "profesores" => Profesor::all(),
+        ]);
     }
 
     /**
@@ -37,6 +40,22 @@ class ProfesorController extends Controller
     public function store(StoreProfesorRequest $request)
     {
         //
+        $profesore = new Profesor();
+
+        $profesore->nombre = $request->input("nombre");
+        $profesore->dpi = $request->input("dpi");
+        $profesore->direccion = $request->input("direccion");
+        $profesore->telefono = $request->input("telefono");
+        $profesore->departamento = $request->input("departamento");
+        $profesore->municipio = $request->input("municipio");
+        $profesore->zona = $request->input("zona");
+        $profesore->birth = $request->date("birth");
+        $profesore->genero = $request->input("genero");
+        $profesore->grado = $request->input("grado");
+
+        $profesore->save();
+
+        return redirect("/profesores");
     }
 
     /**
@@ -45,9 +64,12 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function show(Profesor $profesor)
+    public function show(Profesor $profesore)
     {
         //
+        return view('profesores_ver', [
+            "profesor" => $profesore,
+        ]);
     }
 
     /**
@@ -56,9 +78,12 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profesor $profesor)
+    public function edit(Profesor $profesore)
     {
         //
+        return view('profesores_update', [
+            "profesor" => $profesore,
+        ]);
     }
 
     /**
@@ -68,9 +93,23 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProfesorRequest $request, Profesor $profesor)
+    public function update(UpdateProfesorRequest $request, Profesor $profesore)
     {
         //
+        $profesore->nombre = $request->input("nombre");
+        $profesore->dpi = $request->input("dpi");
+        $profesore->direccion = $request->input("direccion");
+        $profesore->telefono = $request->input("telefono");
+        $profesore->departamento = $request->input("departamento");
+        $profesore->municipio = $request->input("municipio");
+        $profesore->zona = $request->input("zona");
+        $profesore->birth = $request->date("birth");
+        $profesore->genero = $request->input("genero");
+        $profesore->grado = $request->input("grado");
+
+        $profesore->save();
+
+        return redirect("/profesores");
     }
 
     /**
@@ -79,8 +118,10 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profesor $profesor)
+    public function destroy(Profesor $profesore)
     {
         //
+        $profesore->delete();
+        return redirect("/profesores");
     }
 }

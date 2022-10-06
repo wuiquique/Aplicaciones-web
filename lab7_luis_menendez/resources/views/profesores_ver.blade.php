@@ -33,19 +33,18 @@
         </ul>
     </nav>
 
-    <p><b>Nombre:</b> {{ $estudiante->nombre }}</p>
-    <p><b>Dpi:</b> {{ $estudiante->dpi }}</p>
-    <p><b>Direccion:</b> {{ $estudiante->direccion }}</p>
-    <p><b>Telefono:</b> {{ $estudiante->telefono }}</p>
-    <p><b>Departamento:</b> {{ $estudiante->departamento }}</p>
-    <p><b>Municipio:</b> {{ $estudiante->municipio }}</p>
-    <p><b>Zona:</b> {{ $estudiante->zona }}</p>
-    <p><b>Fecha de nacimiento:</b> {{ $estudiante->birth }}</p>
-    <p><b>Genero:</b> {{ $estudiante->genero }}</p>
-    <p><b>Facultad:</b> {{ $estudiante->facultad }}</p>
-    <p><b>Carrera:</b> {{ $estudiante->carrera }}</p>
-    <button onclick="location.href='/estudiantes/{{$estudiante->id}}/edit'">Actualizar</button>
-    <form action="/estudiantes/{{$estudiante->id}}" method="POST">
+    <p><b>Nombre:</b> {{ $profesor->nombre }}</p>
+    <p><b>Dpi:</b> {{ $profesor->dpi }}</p>
+    <p><b>Direccion:</b> {{ $profesor->direccion }}</p>
+    <p><b>Telefono:</b> {{ $profesor->telefono }}</p>
+    <p><b>Departamento:</b> {{ $profesor->departamento }}</p>
+    <p><b>Municipio:</b> {{ $profesor->municipio }}</p>
+    <p><b>Zona:</b> {{ $profesor->zona }}</p>
+    <p><b>Fecha de nacimiento:</b> {{ $profesor->birth }}</p>
+    <p><b>Genero:</b> {{ $profesor->genero }}</p>
+    <p><b>Grado Academico:</b> {{ $profesor->grado }}</p>
+    <button onclick="location.href='/profesores/{{$profesor->id}}/edit'">Actualizar</button>
+    <form action="/profesores/{{$profesor->id}}" method="POST">
         @csrf
         @method("DELETE")
         <input type="submit" value="Borrar">

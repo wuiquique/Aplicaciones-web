@@ -32,20 +32,20 @@
             </li>
         </ul>
     </nav>
-    @foreach ($estudiantes as $estudiante)
-    <p><b>Nombre:</b> {{ $estudiante->nombre }}</p>
-    <p><b>Genero:</b> {{ $estudiante->genero }}</p>
-    <p><b>Facultad:</b> {{ $estudiante->facultad }}</p>
-    <button onclick="location.href='/estudiantes/{{$estudiante->id}}/edit'">Actualizar</button>
-    <button onclick="location.href='/estudiantes/{{$estudiante->id}}'">Ver</button>
-    <form action="/estudiantes/{{$estudiante->id}}" method="POST">
+    @foreach ($profesores as $profesor)
+    <p><b>Nombre:</b> {{ $profesor->nombre }}</p>
+    <p><b>Genero:</b> {{ $profesor->genero }}</p>
+    <p><b>Grado Academico:</b> {{ $profesor->grado }}</p>
+    <button onclick="location.href='/profesores/{{$profesor->id}}/edit'">Actualizar</button>
+    <button onclick="location.href='/profesores/{{$profesor->id}}'">Ver</button>
+    <form action="/profesores/{{$profesor->id}}" method="POST">
         @csrf
         @method("DELETE")
         <input type="submit" value="Borrar">
     </form>
     @endforeach
 
-    <form action="/estudiantes" method="POST">
+    <form action="/profesores" method="POST">
         @csrf
 
         <input name="nombre" type="text" placeholder="Nombre"> <br>
@@ -57,8 +57,7 @@
         <input name="zona" type="text" placeholder="Zona"> <br>
         <input name="birth" type="date" placeholder="Fecha de nacimiento"> <br>
         <input name="genero" type="text" placeholder="Genero"> <br>
-        <input name="carrera" type="text" placeholder="Carrera"> <br>
-        <input name="facultad" type="text" placeholder="Facultad"> <br>
+        <input name="grado" type="text" placeholder="Grado Academico"> <br>
         <input type="submit" value="Crear">
     </form>
 </body>

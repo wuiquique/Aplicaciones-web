@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Curso;
 use App\Http\Requests\StoreCursoRequest;
 use App\Http\Requests\UpdateCursoRequest;
+use App\Models\Profesor;
 
 class CursoController extends Controller
 {
@@ -16,6 +17,10 @@ class CursoController extends Controller
     public function index()
     {
         //
+        return view('cursos_lista', [
+            "cursos" => Curso::all(),
+            "profesores" => Profesor::all(),
+        ]);
     }
 
     /**
@@ -37,6 +42,15 @@ class CursoController extends Controller
     public function store(StoreCursoRequest $request)
     {
         //
+        $curso = new Curso();
+
+        $curso->nombre = $request->input("nombre");
+        $curso->creditos = $request->input("creditos");
+        $curso->prof_id = $request->input("prof_id");
+
+        $curso->save();
+
+        return redirect("/cursos");
     }
 
     /**
@@ -48,6 +62,9 @@ class CursoController extends Controller
     public function show(Curso $curso)
     {
         //
+        return view('cursos_ver', [
+            "curso" => $curso,
+        ]);
     }
 
     /**
@@ -59,6 +76,10 @@ class CursoController extends Controller
     public function edit(Curso $curso)
     {
         //
+        return view('cursos_update', [
+            "curso" => $curso,
+            "profesores" => Profesor::all(),
+        ]);
     }
 
     /**
@@ -71,6 +92,13 @@ class CursoController extends Controller
     public function update(UpdateCursoRequest $request, Curso $curso)
     {
         //
+        $curso->nombre = $request->input("nombre");
+        $curso->creditos = $request->input("creditos");
+        $curso->prof_id = $request->input("prof_id");
+
+        $curso->save();
+
+        return redirect("/cursos");
     }
 
     /**
@@ -82,5 +110,7 @@ class CursoController extends Controller
     public function destroy(Curso $curso)
     {
         //
+        $curso->delete();
+        return redirect("/cursos");
     }
 }
