@@ -4,7 +4,7 @@ import { VRow, VCol, VImg, VCardTitle, VCardText, VCardActions, VBtn, VTextField
 
 <template>
     <v-row>
-        <v-col v-for="item in props.items" :key="item.name" cols="12" sm="6" md="4" lg="3">
+        <v-col v-for="item in items" :key="item.name" cols="12" sm="6" md="4" lg="3">
 
             <v-card :loading="item.loading" class="my-3" max-width="374" height="600">
                 <template slot="progress">
@@ -51,12 +51,8 @@ export default {
 
             setTimeout(() => (item.loading = false), 2000)
         },
-        ...Vuex.mapMutations([
-            "addToCart"
-        ])
     }
 }
-
 var productos = [
     { titulo: 'Leche', cantidad: 1, precio: 10, descripcion: 'Producto bebible lacteo', imagen: 'https://statics-cuidateplus.marca.com/cms/styles/natural/azblob/lecheok_0.jpg.webp?itok=0XaoEZv0', loading: false },
     { titulo: 'Computadora', cantidad: 1, precio: 12999, descripcion: 'Dispositivo informático que es capaz de recibir, almacenar y procesar información de una forma útil.', imagen: 'https://www.tecnologia-informatica.com/wp-content/uploads/2018/08/caracteristicas-de-las-computadoras-1.jpeg', loading: false },

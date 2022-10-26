@@ -18,6 +18,11 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public function carritos()
+    {
+        return $this->hasMany(Carrito::class, "user_id");
+    }
+
     /**
      * The attributes that are mass assignable.
      *
