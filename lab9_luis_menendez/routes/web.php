@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ItemController;
-use App\Http\Controller\CarritoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,3 +39,4 @@ Route::middleware([
     })->name('cart');
 });
 Route::apiResource("items", ItemController::class);
+Route::apiResource("carrito", CarritoController::class);
