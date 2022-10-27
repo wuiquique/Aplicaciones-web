@@ -16,6 +16,9 @@ class ItemController extends Controller
     public function index()
     {
         //
+        return response()->json([
+            'items' => Item::all(),
+        ]);
     }
 
     /**

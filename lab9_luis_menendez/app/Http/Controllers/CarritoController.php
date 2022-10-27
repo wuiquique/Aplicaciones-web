@@ -16,6 +16,17 @@ class CarritoController extends Controller
     public function index()
     {
         //
+        $usr = $request->user();
+        
+        $items = $usr->items;
+
+        foreach ($items as $item) {
+            $item->cant = $item->pivot->cant;
+        }
+
+        return response()->json([
+            'carrito' => $items,
+        ]);
     }
 
     /**

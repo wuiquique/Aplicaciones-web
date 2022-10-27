@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('item_id')->constrained('items');
+            $table->integer('cant')->default(1);
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE carritos ADD CONSTRAINT chk_cant_amount CHECK (cant > 0);');
     }
 
     /**

@@ -18,9 +18,9 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    public function carritos()
+    public function items()
     {
-        return $this->hasMany(Carrito::class, "user_id");
+        return $this->belongsToMany(Item::class, "carritos")->withTimestamps()->withPivot('cant')->orderByPivot('cant', 'desc');
     }
 
     /**
